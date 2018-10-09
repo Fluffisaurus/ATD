@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class GridMap : MonoBehaviour {
 
     public GameObject gridObj;
-    public Transform enemy;
+    //public Transform enemy; //used to test and check enemy pos
     
     private Tilemap tilemap;
     private BoundsInt bounds;
@@ -25,11 +25,6 @@ public class GridMap : MonoBehaviour {
         MakeNodeGrid(); //create reference grid of type Node
     }
 
-    private void Update()
-    {
-        
-    }
-
     void MakeNodeGrid()
     {
         gridStuff = new Node[xBound, yBound];
@@ -44,10 +39,32 @@ public class GridMap : MonoBehaviour {
                 Vector3 gridPoint = origin + Vector3.right * x + Vector3.up * y;
                 //overlapcircle checks if there's any colliders at the current circular location
                 bool walkable = !(Physics2D.OverlapCircle(gridPoint, bounds.size.x/10/2, unwalkableMask));
-                gridStuff[x, y] = new Node(walkable, gridPoint);
+                gridStuff[x, y] = new Node(walkable, gridPoint, x, y);
                 //Debug.Log(gridPoint);
             }
         }
+    }
+
+    public List<Node> GetNeighbours(Node node)
+    {
+        List<Node> neighbours = new List<Node>();
+
+        for(int x = -1; x <= 1; x++)
+        {
+            for(int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0) continue;
+
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if(checkX >= 0 && checkX < xBound && checkY >= 0 && checkY < yBound)
+                {
+                    neighbours.Add(gridStuff[checkX, checkY]);
+                }
+            }
+        }
+        return neighbours;
     }
 
     public Node NodeFromWorldPoint(Vector3 worldPos)
@@ -58,8 +75,11 @@ public class GridMap : MonoBehaviour {
         int x = Mathf.RoundToInt(bounds.size.x  * percentX);
         int y = Mathf.FloorToInt(bounds.size.y  * percentY);
         Debug.Log("Supposed Point: " + x + ", " + y);
+        //Potential issue in pathfinding because of the minus 1
         return gridStuff[x, y-1];
     }
+
+    public List<Node> path;
 
     private void OnDrawGizmos()
     {
@@ -67,14 +87,20 @@ public class GridMap : MonoBehaviour {
         //check if nodegrid is actually registering new grid points
         if (gridStuff != null)
         {
-            Node enemyNode = NodeFromWorldPoint(enemy.position);
+            //Node enemyNode = NodeFromWorldPoint(enemy.position);
             //Debug.Log(enemy.position);
             foreach (Node n in gridStuff)
             {
                 Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                if(enemyNode == n)
+                //if(enemyNode == n)
+                //{
+                //    Gizmos.color = Color.cyan;
+                //}
+                if(path != null)
                 {
-                    Gizmos.color = Color.cyan;
+                    if (path.Contains(n))
+                        Gizmos.color = Color.black;
+                    Debug.Log("path not null");
                 }
                 Gizmos.DrawCube(n.worldPosition, Vector3.one * (bounds.size.x/10 - .1f));
                 //Debug.Log("drawing cube part " + n);
