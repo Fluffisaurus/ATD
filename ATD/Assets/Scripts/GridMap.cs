@@ -19,7 +19,7 @@ public class GridMap : MonoBehaviour {
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         bounds = tilemap.cellBounds;
         xBound = bounds.size.x;
-        yBound = bounds.size.y;
+        yBound = bounds.size.y+1;
         //Debug.Log(bounds.size.x);
         //Debug.Log(bounds.size.y);
         MakeNodeGrid(); //create reference grid of type Node
@@ -74,12 +74,18 @@ public class GridMap : MonoBehaviour {
 
         int x = Mathf.RoundToInt(bounds.size.x  * percentX);
         int y = Mathf.FloorToInt(bounds.size.y  * percentY);
-        Debug.Log("Supposed Point: " + x + ", " + y);
+        //Debug.Log("Supposed Point: " + x + ", " + y);
         //Potential issue in pathfinding because of the minus 1
         return gridStuff[x, y-1];
     }
 
     public List<Node> path;
+
+    public List<Node> getPath()
+    {
+        return path;
+    }
+
 
     private void OnDrawGizmos()
     {
@@ -100,7 +106,7 @@ public class GridMap : MonoBehaviour {
                 {
                     if (path.Contains(n))
                         Gizmos.color = Color.black;
-                    Debug.Log("path not null");
+                    //Debug.Log("path not null");
                 }
                 Gizmos.DrawCube(n.worldPosition, Vector3.one * (bounds.size.x/10 - .1f));
                 //Debug.Log("drawing cube part " + n);

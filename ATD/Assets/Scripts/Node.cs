@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Node{
     public bool walkable;
-    public Vector2 worldPosition;
+    public Vector3 worldPosition;
     public int gridX;
     public int gridY;
 
