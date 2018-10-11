@@ -74,7 +74,9 @@ public class GridMap : MonoBehaviour {
 
         int x = Mathf.RoundToInt(bounds.size.x  * percentX);
         int y = Mathf.FloorToInt(bounds.size.y  * percentY);
+
         //Debug.Log("Supposed Point: " + x + ", " + y);
+
         //Potential issue in pathfinding because of the minus 1
         return gridStuff[x, y-1];
     }
