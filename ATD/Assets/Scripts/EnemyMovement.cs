@@ -2,39 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Referenced from Sebastian Lague's A* Pathfinding Tutorial: Units
+
 public class EnemyMovement : MonoBehaviour {
 
-    public float speed = 10f;
+    public float speed = 2f;
+    public Transform target;
 
-    private GridMap map;
-    private List<Node> path;
-    private Vector3 target;
+    private Vector3[] path;
     private int index;
-	// Use this for initialization
-	void Awake () {
-        map = GetComponent<GridMap>();
-        path = map.getPath();
-        target = path[index].worldPosition;
-        Debug.Log(path);
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        //Vector3 direction = target - this.transform.position;
-        //transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-        //if(Vector3.Distance(transform.position, target) <= 0.1f)
-        //{
-        //    GetNextPathPoint();
-        //}
-	}
 
-    void GetNextPathPoint()
-    {
-        if(index >= path.Count - 1)
-        {
-            Destroy(gameObject);
+    void Start() {
+        PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+    }
+
+    public void OnPathFound(Vector3[] newPath, bool pathSuccessful) {
+        if (pathSuccessful) {
+            path = newPath;
+            StopCoroutine("FollowPath");
+            StartCoroutine("FollowPath");
         }
-        index++;
-        target = path[index].worldPosition;
+    }
+
+    IEnumerator FollowPath() {
+        Vector3 currentWaypoint = path[0];
+
+        while (true) {
+            if (transform.position == currentWaypoint) {
+                index++;
+                if (index >= path.Length) {
+                    yield break;
+                }
+                currentWaypoint = path[index];
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    public void OnDrawGizmos() {
+        if(path!= null) {
+            for(int i = index; i<path.Length; i++) {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube(path[i], Vector3.one);
+
+                if(i == index) {
+                    Gizmos.DrawLine(transform.position, path[i]);
+                }
+                else {
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+                }
+            }
+        }
     }
 }

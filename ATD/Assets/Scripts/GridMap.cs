@@ -7,14 +7,15 @@ public class GridMap : MonoBehaviour {
 
     public GameObject gridObj;
     //public Transform enemy; //used to test and check enemy pos
-    
+    public bool displayGridGizmos;
+
     private Tilemap tilemap;
     private BoundsInt bounds;
     private int xBound, yBound;
     public LayerMask unwalkableMask;
     Node[,] gridStuff;
 
-    private void Start()
+    private void Awake()
     {
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         bounds = tilemap.cellBounds;
@@ -23,6 +24,12 @@ public class GridMap : MonoBehaviour {
         //Debug.Log(bounds.size.x);
         //Debug.Log(bounds.size.y);
         MakeNodeGrid(); //create reference grid of type Node
+    }
+
+    public int MaxSize {
+        get {
+            return xBound * yBound;
+        }
     }
 
     void MakeNodeGrid()
@@ -81,42 +88,17 @@ public class GridMap : MonoBehaviour {
         return gridStuff[x, y-1];
     }
 
-    public List<Node> path;
-
-    public List<Node> getPath()
-    {
-        return path;
-    }
-
 
     private void OnDrawGizmos()
     {
-
         //check if nodegrid is actually registering new grid points
-        if (gridStuff != null)
-        {
+       if (gridStuff != null && displayGridGizmos) {
             //Node enemyNode = NodeFromWorldPoint(enemy.position);
             //Debug.Log(enemy.position);
-            foreach (Node n in gridStuff)
-            {
-                Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                //if(enemyNode == n)
-                //{
-                //    Gizmos.color = Color.cyan;
-                //}
-                if(path != null)
-                {
-                    if (path.Contains(n))
-                        Gizmos.color = Color.black;
-                    //Debug.Log("path not null");
-                }
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (bounds.size.x/10 - .1f));
+            foreach (Node n in gridStuff) {
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (bounds.size.x / 10 - .1f));
                 //Debug.Log("drawing cube part " + n);
             }
         }
-        //else
-        //{
-        //    Debug.Log("gridstuff is null");
-        //}
     }
 }
