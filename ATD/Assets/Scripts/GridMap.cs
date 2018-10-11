@@ -74,7 +74,7 @@ public class GridMap : MonoBehaviour {
 
         int x = Mathf.RoundToInt(bounds.size.x  * percentX);
         int y = Mathf.FloorToInt(bounds.size.y  * percentY);
-        Debug.Log("Supposed Point: " + x + ", " + y);
+//        Debug.Log("Supposed Point: " + x + ", " + y);
         //Potential issue in pathfinding because of the minus 1
         return gridStuff[x, y-1];
     }
@@ -100,7 +100,7 @@ public class GridMap : MonoBehaviour {
                 {
                     if (path.Contains(n))
                         Gizmos.color = Color.black;
-                    Debug.Log("path not null");
+//                    Debug.Log("path not null");
                 }
                 Gizmos.DrawCube(n.worldPosition, Vector3.one * (bounds.size.x/10 - .1f));
                 //Debug.Log("drawing cube part " + n);
