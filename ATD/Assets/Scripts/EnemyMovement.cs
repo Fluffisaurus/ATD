@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour {
     private int index;
 
     void Start() {
+        target = GameObject.Find("Enemy_Move_Target").transform;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 

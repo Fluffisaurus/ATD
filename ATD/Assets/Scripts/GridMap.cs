@@ -96,6 +96,7 @@ public class GridMap : MonoBehaviour {
             //Node enemyNode = NodeFromWorldPoint(enemy.position);
             //Debug.Log(enemy.position);
             foreach (Node n in gridStuff) {
+                Gizmos.color = (n.walkable) ? Color.white : Color.red;
                 Gizmos.DrawCube(n.worldPosition, Vector3.one * (bounds.size.x / 10 - .1f));
                 //Debug.Log("drawing cube part " + n);
             }
