@@ -129,7 +129,7 @@ MonoBehaviour:
   target: {fileID: 4709303255435396, guid: d73ce8895a994bc40b702c57b6a51ebd, type: 2}
   rangeGizmo: 1.8
   attackDelay: 0.5
-  damage: 2
+  damage: 1
   cost: 10
 --- !u!212 &212063309505594340
 SpriteRenderer:

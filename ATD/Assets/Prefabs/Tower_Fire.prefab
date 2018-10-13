@@ -121,7 +121,7 @@ MonoBehaviour:
   damage: 4
   cost: 20
   numberOfTicks: 2
-  damageInterval: 2
+  damageInterval: 3
 --- !u!114 &114756394432747778
 MonoBehaviour:
   m_ObjectHideFlags: 1
