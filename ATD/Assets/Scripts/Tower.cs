@@ -7,7 +7,9 @@ public class Tower : MonoBehaviour {
 
     public Transform target;
     public float rangeGizmo = 2f;
+    public float attackDelay = 1f;
 
+    private float nextDmgEvent;
     private GameObject child;
     private CircleCollider2D range;
 
@@ -21,14 +23,34 @@ public class Tower : MonoBehaviour {
     internal void UpdateTarget(Collider2D enemy) {
         if (target == null) {
             target = enemy.transform;
-            print("target set to: " + target);
+            print("target set to: " + target.gameObject);
         }
     }
 
     internal void RemoveTarget(Collider2D enemy) {
         if (target == enemy.transform) {
             target = null;
-            print("unassigned " + enemy.transform + " as target");
+            print("target null");
+        }
+    }
+
+    void AttackEnemy() {
+        if (Time.time >= nextDmgEvent) {
+            nextDmgEvent = Time.time + attackDelay;
+            if (target.gameObject.tag == "Enemy") {
+                target.GetComponent<Enemy>().TakeDamage(5);
+                print("attack");
+            }
+        }
+    }
+
+    private void Update() {
+        if(target != null) {
+            AttackEnemy();
+            
+        }
+        else {
+            nextDmgEvent = Time.time + attackDelay;
         }
     }
 

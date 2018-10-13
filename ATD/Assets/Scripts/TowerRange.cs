@@ -11,6 +11,12 @@ public class TowerRange : MonoBehaviour {
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision) {
+        if(collision.tag == "Enemy") {
+            gameObject.GetComponentInParent<Tower>().UpdateTarget(collision);
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Enemy") {
             //print("hi, exit");
