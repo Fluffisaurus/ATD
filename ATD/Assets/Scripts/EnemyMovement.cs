@@ -32,6 +32,7 @@ public class EnemyMovement : MonoBehaviour {
             if (transform.position == currentWaypoint) {
                 index++;
                 if (index >= path.Length) {
+                    EndPoint();
                     yield break;
                 }
                 currentWaypoint = path[index];
@@ -40,6 +41,10 @@ public class EnemyMovement : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
             yield return null;
         }
+    }
+
+    void EndPoint() {
+        Destroy(gameObject);
     }
 
     public void OnDrawGizmos() {
