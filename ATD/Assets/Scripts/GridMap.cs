@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+//referenced from Sebastian Lague's A* Pathfinding and modified for this game's purpose
+
 public class GridMap : MonoBehaviour {
 
     public GameObject gridObj;
@@ -60,7 +62,7 @@ public class GridMap : MonoBehaviour {
         {
             for(int y = -1; y <= 1; y++)
             {
-                if (x == 0 && y == 0) continue;
+                if (x == 0 && y == 0 || x != 0 && y != 0) continue;
 
                 int checkX = node.gridX + x;
                 int checkY = node.gridY + y;
