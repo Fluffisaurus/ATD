@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour {
         if(path!= null) {
             for(int i = index; i<path.Length; i++) {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube(path[i], Vector3.one);
+                Gizmos.DrawCube(path[i], new Vector3(0.4f, 0.4f, 0.4f));
 
                 if(i == index) {
                     Gizmos.DrawLine(transform.position, path[i]);

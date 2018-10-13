@@ -8,54 +8,56 @@ public class Tower : MonoBehaviour {
     public Transform target;
     public float rangeGizmo = 2f;
     public float attackDelay = 1f;
+    public float damage = 1f;
+    public float cost = 10f;
 
     private float nextDmgEvent;
     private GameObject child;
     private CircleCollider2D range;
 
-    void Start() {
+    protected virtual void Start() {
         child = this.transform.GetChild(0).gameObject;
         range = child.GetComponent<CircleCollider2D>();
         range.radius = rangeGizmo * 0.917f / 2.75f;
         target = null;
     }
 
-    internal void UpdateTarget(Collider2D enemy) {
+    internal virtual void UpdateTarget(Collider2D enemy) {
         if (target == null) {
             target = enemy.transform;
-            print("target set to: " + target.gameObject);
+            //print("TARGET: " + target.gameObject);
         }
     }
 
-    internal void RemoveTarget(Collider2D enemy) {
+    internal virtual void RemoveTarget(Collider2D enemy) {
         if (target == enemy.transform) {
             target = null;
-            print("target null");
+            //print("TARGET: null");
         }
     }
 
-    void AttackEnemy() {
-        if (Time.time >= nextDmgEvent) {
-            nextDmgEvent = Time.time + attackDelay;
-            if (target.gameObject.tag == "Enemy") {
-                target.GetComponent<Enemy>().TakeDamage(5);
-                print("attack");
-            }
-        }
+    protected virtual void AttackEnemy() {
+        target.GetComponent<Enemy>().TakeDamage(damage);
+        print("attack");
     }
 
-    private void Update() {
+    protected virtual void Update() {
         if(target != null) {
-            AttackEnemy();
-            
+            if (Time.time >= nextDmgEvent) {
+                nextDmgEvent = Time.time + attackDelay;
+                if (target.gameObject.tag == "Enemy") {
+                    AttackEnemy();
+                }
+            }
+
         }
         else {
             nextDmgEvent = Time.time + attackDelay;
         }
     }
 
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
+    protected virtual void OnDrawGizmosSelected() {
+        Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(transform.position, rangeGizmo);
     }
 }
