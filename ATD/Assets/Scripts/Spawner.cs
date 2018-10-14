@@ -19,12 +19,13 @@ public class Spawner : MonoBehaviour {
     private Vector3[] spawnArea;
     private int xSize;
     private bool isPlayClicked;
-    private bool isWaveSpawning;
+    [HideInInspector]
+    public bool isWaveSpawning;
 
     private float[] spawnAmount = { 0, 0, 0 };
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         xSize = tilemap.cellBounds.size.x;
         MakeSpawnArea();
@@ -42,8 +43,12 @@ public class Spawner : MonoBehaviour {
 
     public void SetPlayButton() {
         //make sure there's no leftover enemies
-        if (FindObjectOfType<Enemy>() == null)
+        if (CheckIfNoEnemiesExists())
             isPlayClicked = true;
+    }
+
+    public bool CheckIfNoEnemiesExists() {
+        return (FindObjectOfType<Enemy>() == null);
     }
 
     void MakeSpawnArea() {

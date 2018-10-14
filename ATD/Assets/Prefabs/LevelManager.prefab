@@ -139,10 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
-  enemy: {fileID: 4709303255435396, guid: d73ce8895a994bc40b702c57b6a51ebd, type: 2}
-  enemyTank: {fileID: 4557172446713082, guid: f3a3cf5b3ce06a843a64d7b7e892922b, type: 2}
-  enemySpeedster: {fileID: 4174986490175432, guid: c45477fff241bdb41bb81abd85fa0133,
+  enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+  enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a, type: 2}
+  enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
     type: 2}
-  numberOfGenerics: 5
-  numberOfTanks: 1
+  numberOfGenerics: 6
+  numberOfTanks: 2
   numberOfSpeedsters: 1

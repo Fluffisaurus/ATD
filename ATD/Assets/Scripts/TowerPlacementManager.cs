@@ -23,8 +23,12 @@ public class TowerPlacementManager : MonoBehaviour {
     private List<Vector3> worldListPos;
     private List<Vector3Int> tileListPos;
 
+    public GameObject tower;
+    Spawner spawner;
+
 	// Use this for initialization
 	void Start () {
+        spawner = GetComponent<Spawner>();
         buildmanager = BuildManager.instance;
         tilemap = grid.GetComponentInChildren<Tilemap>();
         worldListPos = new List<Vector3>();
@@ -55,6 +59,8 @@ public class TowerPlacementManager : MonoBehaviour {
         tilePos = tilemap.WorldToCell(mousePos);
 
         if (Input.GetMouseButtonDown(0) && canUserPlace) {
+
+
             if (!buildmanager.CanBuild)
                 return;
 
@@ -66,6 +72,14 @@ public class TowerPlacementManager : MonoBehaviour {
             }
             StartCoroutine("FindPlaceableAreas");
         }
+        else if(Input.GetMouseButtonDown(0) && !canUserPlace){
+            if (!tileListPos.Contains(tilePos)) {
+                
+            }
+            print("hi");
+        }
+
+ 
 
         if (colorPlaceableTiles) {
             foreach (var pos in tilemap.cellBounds.allPositionsWithin)

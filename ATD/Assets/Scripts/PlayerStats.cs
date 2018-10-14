@@ -12,15 +12,26 @@ public class PlayerStats : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Health = startingHealth;
-        Honey = startingHoney;
+
+        if(Difficulty.difficulty[0] == true) {
+            Health = startingHealth;
+            Honey = startingHoney;
+        }else if(Difficulty.difficulty[1] == true) {
+            Health = Mathf.RoundToInt(startingHealth * 0.8f);
+            Honey = Mathf.RoundToInt(startingHoney * 0.8f);
+        }else if(Difficulty.difficulty[2] == true) {
+            Health = Mathf.RoundToInt(startingHealth * 0.6f);
+            Honey = Mathf.RoundToInt(startingHoney * 0.6f);
+        }
+        else {//easy by default if someone nothing works or accessing directly from mainscene
+            Health = startingHealth;
+            Honey = startingHoney;
+        }
+
+        //reset selection
+        for (int i = 0; i < Difficulty.difficulty.Length; i++) Difficulty.difficulty[i] = false;
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void LoseHP(int value) {
         Health -= value;
     }

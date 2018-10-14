@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour {
 		SceneManager.LoadScene("Title_Page");
 	}
 	public void Lvl1(){
-		SceneManager.LoadScene("Dificulty_Select");
+		SceneManager.LoadScene("Difficulty_Select");
 	}
 
 }
