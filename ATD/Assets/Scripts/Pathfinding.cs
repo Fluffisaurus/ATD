@@ -29,7 +29,7 @@ public class Pathfinding : MonoBehaviour {
 
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
-        
+
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
 
@@ -96,11 +96,11 @@ public class Pathfinding : MonoBehaviour {
         Vector2 directionOld = Vector2.zero;
 
         for (int i = 1; i < path.Count; i++) {
-            Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
-            if (directionNew != directionOld) {
+          //  Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
+            //if (directionNew != directionOld) {
                 waypoints.Add(path[i - 1].worldPosition);
-            }
-            directionOld = directionNew;
+            //}
+          //  directionOld = directionNew;
             //waypoints.Add(path[i-1].worldPosition);
         }
         return waypoints.ToArray();
@@ -116,11 +116,11 @@ public class Pathfinding : MonoBehaviour {
             return 14 * distY + 10 * (distX - distY);
             //equation takes into account the shortest path including diagonals
             //if each path length = 1, hypotenuse = root(2) = 1.4
-            //multiply these values by 10 to get 14 and 10 
+            //multiply these values by 10 to get 14 and 10
         }
         else
         {
-            return 14 * distX + 10 * (distY - distX); 
+            return 14 * distX + 10 * (distY - distX);
         }
     }
 }

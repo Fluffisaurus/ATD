@@ -210,16 +210,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224505463488991266, guid: 9bae93c9d91a94d9aad1d795cee3873a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.000004155838
-      objectReference: {fileID: 0}
-    - target: {fileID: 224505463488991266, guid: 9bae93c9d91a94d9aad1d795cee3873a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -570.9971
-      objectReference: {fileID: 0}
     - target: {fileID: 1988788725469728, guid: 9bae93c9d91a94d9aad1d795cee3873a, type: 2}
       propertyPath: m_IsActive
       value: 0
