@@ -37,8 +37,8 @@ public class EnemyMovement : MonoBehaviour {
                 }
                 currentWaypoint = path[index];
             }
-
-            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+            if(!gameObject.GetComponent<Enemy>().stunned)
+                transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
             yield return null;
         }
     }

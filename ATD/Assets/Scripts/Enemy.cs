@@ -16,7 +16,9 @@ public class Enemy : MonoBehaviour {
     public Image hpBar;
 
     private float[] DoT = { 0, 0, 0 };
-    private bool isCoroutineRunning;
+    private bool isDOTCoroutineRunning;
+    private float stunDuration;
+    private bool isStunCoroutineRunning;
 
     private void Start() {
         onFire = false;
@@ -31,8 +33,12 @@ public class Enemy : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (onFire && !isCoroutineRunning) {
+        if (onFire && !isDOTCoroutineRunning) {
             StartCoroutine(TakeDamageOverTime(DoT[0], DoT[1], DoT[2]));
+        }
+
+        if(stunned && !isStunCoroutineRunning) {
+            StartCoroutine(IsStunned(stunDuration));
         }
     }
 
@@ -42,6 +48,7 @@ public class Enemy : MonoBehaviour {
     }
 
     internal void SetOnFire(float[] DoTValues) {
+        onFire = true;
         for(int i = 0; i < DoT.Length; i++) {
             DoT[i] = DoTValues[i];
         }
@@ -55,7 +62,7 @@ public class Enemy : MonoBehaviour {
 
     internal IEnumerator TakeDamageOverTime(float dmg, float numOfTicks, float duration) {
         float currTick = 0f;
-        isCoroutineRunning = true;
+        isDOTCoroutineRunning = true;
         while(currTick < numOfTicks) {
             health -= dmg;
             hpBar.fillAmount = health / MAX_HP;
@@ -65,8 +72,23 @@ public class Enemy : MonoBehaviour {
         }
         
         onFire = false;
-        isCoroutineRunning = false;
+        isDOTCoroutineRunning = false;
         ResetOnFire();
+        yield break;
+    }
+
+    internal void SetStun(float duration) {
+        stunned = true;
+        stunDuration = duration;
+    }
+
+    internal IEnumerator IsStunned(float duration) {
+        isStunCoroutineRunning = true;
+        print("stunned for: " + duration);
+        yield return new WaitForSecondsRealtime(duration);
+
+        stunned = false;
+        isStunCoroutineRunning = false;
         yield break;
     }
 

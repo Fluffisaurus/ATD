@@ -5,19 +5,28 @@ using UnityEngine.Tilemaps;
 
 public class Spawner : MonoBehaviour {
 
-    public Transform enemy;
     public GameObject gridObj;
+    [Header("Enemies")]
+    public Transform enemy;
+    public Transform enemyTank;
+    public Transform enemySpeedster;
+    [Header("Number of each enemy")]
+    public float numberOfGenerics;
+    public float numberOfTanks;
+    public float numberOfSpeedsters;
 
     private Tilemap tilemap;
     private Vector3[] spawnArea;
-    private int xSize, ySize;
+    private int xSize;
+
+    private float[] spawnAmount = { 0, 0, 0 };
 
 	// Use this for initialization
 	void Start () {
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         xSize = tilemap.cellBounds.size.x;
-        ySize = tilemap.cellBounds.size.y / 10;
         MakeSpawnArea();
+        SetSpawnAmount();
         SpawnWave();
 	}
 	
@@ -35,10 +44,38 @@ public class Spawner : MonoBehaviour {
         }
     }
 
+    void SetSpawnAmount() {
+        spawnAmount[0] = numberOfGenerics;
+        spawnAmount[1] = numberOfTanks;
+        spawnAmount[2] = numberOfSpeedsters;
+    }
+
     void SpawnWave() {
-        for(int i = 0; i < 5; i++) {
-            int spawnPos = Random.Range(0, xSize - 1);
-            Instantiate(enemy, spawnArea[spawnPos], Quaternion.identity);
+        for(int i = 0; i < spawnAmount.Length; i++) {
+            SpawnEnemy(spawnAmount[i], i.ToString());
+        }
+    }
+
+    void SpawnEnemy(float num, string index) {
+        switch (index) {
+            case "0":
+                for (int i = 0; i < num; i++) {
+                    int spawnPos = Random.Range(0, xSize - 1);
+                    Instantiate(enemy, spawnArea[spawnPos], Quaternion.identity);
+                }
+                break;
+            case "1":
+                for (int i = 0; i < num; i++) {
+                    int spawnPos = Random.Range(0, xSize - 1);
+                    Instantiate(enemyTank, spawnArea[spawnPos], Quaternion.identity);
+                }
+                break;
+            case "2":
+                for (int i = 0; i < num; i++) {
+                    int spawnPos = Random.Range(0, xSize - 1);
+                    Instantiate(enemySpeedster, spawnArea[spawnPos], Quaternion.identity);
+                }
+                break;
         }
     }
 }

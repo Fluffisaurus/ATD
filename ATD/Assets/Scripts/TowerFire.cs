@@ -20,7 +20,6 @@ public class TowerFire : Tower {
         bool isOnFire = target.GetComponent<Enemy>().onFire;
         if (!isOnFire) {
             float[] DoTStats = { base.damage, numberOfTicks, damageInterval };
-            target.GetComponent<Enemy>().onFire = true;
             target.GetComponent<Enemy>().SetOnFire(DoTStats);
         }
     }
