@@ -5,8 +5,10 @@ This is a redesign of the Antlion flash game. Its genre has been changed to a st
 
 
 
-Graphic Design: Sky Li <br/>
-Models: Sky Li, Nijhum Mohammad and Vivian James <br/>
-Animations: Vivian James <br/>
+Graphic Design (title page & level select): Sky Li <br/>
+Ant Models: Nijhum Mohammad and Vivian James <br/>
+Antlion Models: Sky Li and Vivian James <br/>
+Model Rigging: Vivian James <br/>
+User Interface: Vivian James and Angus Hon <br/>
 Programming: Angus Hon <br/>
 
