@@ -241,7 +241,7 @@ Prefab:
     - target: {fileID: 114152777351570062, guid: 55829339533113444b6188ab7d8b3f8e,
         type: 2}
       propertyPath: displayGridGizmos
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55829339533113444b6188ab7d8b3f8e, type: 2}
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 1973983011}
-  displayGridGizmos: 1
+  displayGridGizmos: 0
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 1024
