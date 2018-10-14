@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Select.unity
     guid: 351efd87638b3483092db84431ac32e1
   - enabled: 1
+    path: Assets/Scenes/Dificulty_Select.unity
+    guid: 565e32eb388b24ccf9520a378d0ccf91
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 6c383e17dd28f134ea5ff0d119ada2b4
   m_configObjects: {}
