@@ -5,16 +5,30 @@ using UnityEngine;
 //Referenced from Sebastian Lague's A* Pathfinding Tutorial: Units
 
 public class EnemyMovement : MonoBehaviour {
-
+    
     public float speed = 2f;
     public Transform target;
 
+    private GameObject lvlMngr;
+    private Spawner spawner;
     private Vector3[] path;
     private int index;
 
     void Start() {
+        lvlMngr = GameObject.Find("LevelManager");
+        spawner = lvlMngr.GetComponent<Spawner>();
         target = GameObject.Find("Enemy_Move_Target").transform;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+    }
+
+    void Update() {
+        //if(spawner.isPlayClicked && !spawner.isWaveSpawning) {
+        //    PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        //}
+        //if (spawner.isPlayClicked) {
+            
+        //    PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        //}
     }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful) {

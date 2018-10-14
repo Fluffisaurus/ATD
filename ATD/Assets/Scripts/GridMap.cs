@@ -17,6 +17,9 @@ public class GridMap : MonoBehaviour {
     public LayerMask unwalkableMask;
     Node[,] gridStuff;
 
+    private GameObject lvlMngr;
+    private Spawner spawner;
+
     private void Awake()
     {
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
@@ -25,7 +28,14 @@ public class GridMap : MonoBehaviour {
         yBound = bounds.size.y+1;
         //Debug.Log(bounds.size.x);
         //Debug.Log(bounds.size.y);
-        MakeNodeGrid(); //create reference grid of type Node
+
+        lvlMngr = GameObject.Find("LevelManager");
+        spawner = lvlMngr.GetComponent<Spawner>();
+        //create reference grid of type Node
+    }
+
+    private void Update() {
+        if(spawner.isPlayClicked) MakeNodeGrid();
     }
 
     public int MaxSize {

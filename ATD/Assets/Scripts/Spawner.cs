@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour {
     private Tilemap tilemap;
     private Vector3[] spawnArea;
     private int xSize;
-    private bool isPlayClicked;
+    public bool isPlayClicked;
     [HideInInspector]
     public bool isWaveSpawning;
 
@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour {
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         xSize = tilemap.cellBounds.size.x;
         MakeSpawnArea();
-        SetSpawnAmount();
+        
         isPlayClicked = false;
         isWaveSpawning = false;
 	}
@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isPlayClicked && !isWaveSpawning) {
+            SetSpawnAmount();
             StartCoroutine("SpawnWave");
         }
 	}
