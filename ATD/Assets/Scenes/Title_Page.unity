@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &265517286
+--- !u!1001 &334939403
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -209,6 +209,20 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224505463488991266, guid: 9bae93c9d91a94d9aad1d795cee3873a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000004155838
+      objectReference: {fileID: 0}
+    - target: {fileID: 224505463488991266, guid: 9bae93c9d91a94d9aad1d795cee3873a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -570.9971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988788725469728, guid: 9bae93c9d91a94d9aad1d795cee3873a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae93c9d91a94d9aad1d795cee3873a, type: 2}
@@ -384,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -600,7 +614,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -772,12 +786,12 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1988788725469728, guid: 9bae93c9d91a94d9aad1d795cee3873a,
     type: 2}
-  m_PrefabInternal: {fileID: 265517286}
+  m_PrefabInternal: {fileID: 334939403}
 --- !u!224 &1262466842 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224228663476209402, guid: 9bae93c9d91a94d9aad1d795cee3873a,
     type: 2}
-  m_PrefabInternal: {fileID: 265517286}
+  m_PrefabInternal: {fileID: 334939403}
 --- !u!1 &1435852802
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
