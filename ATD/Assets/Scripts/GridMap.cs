@@ -62,6 +62,9 @@ public class GridMap : MonoBehaviour {
         {
             for(int y = -1; y <= 1; y++)
             {
+                //with x!=0 && y!=0, the only blocks being considered are now N,E,S,W
+                //diagonals are not counted
+                //if I want enemies to move diagonally, remove the condition after OR
                 if (x == 0 && y == 0 || x != 0 && y != 0) continue;
 
                 int checkX = node.gridX + x;
