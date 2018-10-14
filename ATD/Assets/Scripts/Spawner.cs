@@ -18,6 +18,8 @@ public class Spawner : MonoBehaviour {
     private Tilemap tilemap;
     private Vector3[] spawnArea;
     private int xSize;
+    private bool isPlayClicked;
+    private bool isWaveSpawning;
 
     private float[] spawnAmount = { 0, 0, 0 };
 
@@ -27,13 +29,22 @@ public class Spawner : MonoBehaviour {
         xSize = tilemap.cellBounds.size.x;
         MakeSpawnArea();
         SetSpawnAmount();
-        SpawnWave();
+        isPlayClicked = false;
+        isWaveSpawning = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (isPlayClicked && !isWaveSpawning) {
+            StartCoroutine("SpawnWave");
+        }
 	}
+
+    public void SetPlayButton() {
+        //make sure there's no leftover enemies
+        if (FindObjectOfType<Enemy>() == null)
+            isPlayClicked = true;
+    }
 
     void MakeSpawnArea() {
         spawnArea = new Vector3[xSize];
@@ -50,10 +61,14 @@ public class Spawner : MonoBehaviour {
         spawnAmount[2] = numberOfSpeedsters;
     }
 
-    void SpawnWave() {
-        for(int i = 0; i < spawnAmount.Length; i++) {
+    IEnumerator SpawnWave() {
+        isWaveSpawning = true;
+        for (int i = 0; i < spawnAmount.Length; i++) {
             SpawnEnemy(spawnAmount[i], i.ToString());
         }
+        yield return null;
+        isWaveSpawning = false;
+        isPlayClicked = false;
     }
 
     void SpawnEnemy(float num, string index) {
