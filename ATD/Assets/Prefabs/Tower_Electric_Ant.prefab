@@ -272,6 +272,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1394541954457134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4304927870040544}
+  m_Layer: 10
+  m_Name: firePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1415518453170432
 GameObject:
   m_ObjectHideFlags: 1
@@ -796,6 +811,19 @@ Transform:
   m_Father: {fileID: 4329014413561240}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4304927870040544
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394541954457134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.166, y: -0.015, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4423436020254328}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4329014413561240
 Transform:
   m_ObjectHideFlags: 1
@@ -879,6 +907,7 @@ Transform:
   m_Children:
   - {fileID: 4104464296023590}
   - {fileID: 4851675024523676}
+  - {fileID: 4304927870040544}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1209,9 +1238,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rangeGizmo: 2
-  attackDelay: 3
-  damage: 0
+  attackSpeed: 0.3
+  attackCooldown: 0
+  damage: 1
   cost: 10
+  bulletPrefab: {fileID: 1518457116020156, guid: a0e2a52d359c1dd4da5ef07163516e5a,
+    type: 2}
+  firePos: {fileID: 4304927870040544}
   stunDuration: 1.5
 --- !u!114 &114167233080079250
 MonoBehaviour:

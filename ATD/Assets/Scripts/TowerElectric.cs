@@ -17,9 +17,10 @@ public class TowerElectric : Tower {
 	}
 
     protected override void AttackEnemy() {
-        bool currentlyStunned = target.GetComponent<Enemy>().stunned;
-        if (!currentlyStunned) {
-            target.GetComponent<Enemy>().SetStun(stunDuration);
+        GameObject bulletFired = (GameObject)Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        BulletElectric bullet = bulletFired.GetComponent<BulletElectric>();
+        if (bullet != null) {
+            bullet.Seek(target, stunDuration);
         }
     }
 

@@ -6,12 +6,17 @@ using System;
 public class Tower : MonoBehaviour {
 
     public Transform target;
+
+    [Header("Stats")]
     public float rangeGizmo = 2f;
-    public float attackDelay = 1f;
-    public float damage = 1f;
+    public float attackSpeed = 1f;
+    public float attackCooldown = 0f;
+    public int damage = 1;
     public float cost = 10f;
 
-    private float nextDmgEvent;
+    public GameObject bulletPrefab;
+    public Transform firePos;
+
     private GameObject child;
     private CircleCollider2D range;
 
@@ -37,22 +42,22 @@ public class Tower : MonoBehaviour {
     }
 
     protected virtual void AttackEnemy() {
-        target.GetComponent<Enemy>().TakeDamage(damage);
-        print("attack");
+        //target.GetComponent<Enemy>().TakeDamage(damage);
+        GameObject bulletFired = (GameObject)Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        Bullet bullet = bulletFired.GetComponent<Bullet>();
+        if(bullet != null) {
+            bullet.Seek(target, damage);
+        }
+        //print("attack");
     }
 
     protected virtual void Update() {
-        if(target != null) {
-            if (Time.time >= nextDmgEvent) {
-                nextDmgEvent = Time.time + attackDelay;
-                if (target.gameObject.tag == "Enemy") {
-                    AttackEnemy();
-                }
+        if(target != null && target.gameObject.tag == "Enemy") {
+            if(attackCooldown <= 0f) {
+                AttackEnemy();
+                attackCooldown = 1f / attackSpeed;
             }
-
-        }
-        else {
-            nextDmgEvent = Time.time + attackDelay;
+            attackCooldown -= Time.deltaTime;
         }
     }
 

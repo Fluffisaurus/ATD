@@ -17,10 +17,11 @@ public class TowerFire : Tower {
     }
 
     protected override void AttackEnemy() {
-        bool isOnFire = target.GetComponent<Enemy>().onFire;
-        if (!isOnFire) {
+        GameObject bulletFired = (GameObject)Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        BulletFire bullet = bulletFired.GetComponent<BulletFire>();
+        if (bullet != null) {
             float[] DoTStats = { base.damage, numberOfTicks, damageInterval };
-            target.GetComponent<Enemy>().SetOnFire(DoTStats);
+            bullet.Seek(target, DoTStats);
         }
     }
 
