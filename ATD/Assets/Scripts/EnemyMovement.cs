@@ -44,6 +44,7 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     void EndPoint() {
+        PlayerStats.Health -= gameObject.GetComponent<Enemy>().damageToPlayer;
         Destroy(gameObject);
     }
 

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114974087660883152}
   - component: {fileID: 114763059419848570}
   - component: {fileID: 114243398563966186}
+  - component: {fileID: 114851261580298986}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -81,6 +82,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 1359672715853100, guid: 42bcc0a1305fdb74aaccb3a0e12873d3,
     type: 2}
+  towerFirePrefab: {fileID: 1412470556384524, guid: ce1e3853df392b64d967876b1287ccf0,
+    type: 2}
+  towerElectricPrefab: {fileID: 1725663414527394, guid: 0a39bd3b040a8d548bf829924158e664,
+    type: 2}
+  towerLeafcutterPrefab: {fileID: 1935665428813344, guid: 1bae65373b456384b899b9f713f93392,
+    type: 2}
 --- !u!114 &114763059419848570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,14 +112,28 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   tilePos: {x: 0, y: 0, z: 0}
   showPlaceableGizmos: 0
-  colorPlaceableTiles: 1
---- !u!114 &114974087660883152
+  colorPlaceableTiles: 0
+  canUserPlace: 0
+--- !u!114 &114851261580298986
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206755023716944}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9089c6e2e28135249843a8f57365b419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  startingHoney: 50
+--- !u!114 &114974087660883152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206755023716944}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c0107b80514c6f4cab54df28dcb2a29, type: 3}
   m_Name: 

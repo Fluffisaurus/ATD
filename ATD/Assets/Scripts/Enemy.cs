@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour {
 
     public float MAX_HP = 10f;
     private float health;
+    public int damageToPlayer;
+    public int honeyGained;
 
     public bool stunned { get; set; }
     public bool onFire { get; set; }
@@ -29,8 +31,7 @@ public class Enemy : MonoBehaviour {
 
     private void Update() {
         if(health <= 0) {
-            print("DEAD: " + gameObject);
-            Destroy(gameObject);
+            Dead();
         }
 
         if (onFire && !isDOTCoroutineRunning) {
@@ -40,6 +41,12 @@ public class Enemy : MonoBehaviour {
         if(stunned && !isStunCoroutineRunning) {
             StartCoroutine(IsStunned(stunDuration));
         }
+    }
+
+    internal void Dead() {
+        print("DEAD: " + gameObject);
+        PlayerStats.Honey += honeyGained;
+        Destroy(gameObject);
     }
 
     internal void TakeDamage(float dmg) {

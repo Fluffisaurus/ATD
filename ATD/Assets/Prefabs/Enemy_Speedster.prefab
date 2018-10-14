@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_HP: 5
+  damageToPlayer: 15
+  honeyGained: 3
   hpBar: {fileID: 114884408907134020}
 --- !u!114 &114302029799491330
 MonoBehaviour:

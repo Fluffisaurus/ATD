@@ -248,6 +248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_HP: 20
+  damageToPlayer: 10
+  honeyGained: 5
   hpBar: {fileID: 114455126550694624}
 --- !u!212 &212321473405229624
 SpriteRenderer:

@@ -675,7 +675,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: ?? Honey'
+  m_Text: 'Cost: 5 Honey'
 --- !u!222 &204540425
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: ?? Honey'
+  m_Text: 'Cost: 8 Honey'
 --- !u!222 &232880763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 455, y: 180}
+  m_AnchoredPosition: {x: 362, y: 164}
   m_SizeDelta: {x: 40, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236895899
@@ -1042,8 +1042,8 @@ RectTransform:
   m_Children:
   - {fileID: 1422248982}
   - {fileID: 1933737128}
-  - {fileID: 873807897}
   - {fileID: 1907805124}
+  - {fileID: 873807897}
   m_Father: {fileID: 1078505572}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1091,7 +1091,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 334163360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1078505575}
+        m_MethodName: SelectFireAnt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &334163360
@@ -1463,7 +1474,7 @@ Camera:
   far clip plane: 1000
   field of view: 54.930614
   orthographic: 1
-  orthographic size: 5.590656
+  orthographic size: 6.048928
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1486,7 +1497,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.91, y: 1.01, z: -12.08}
+  m_LocalPosition: {x: -4.91, y: 1.9, z: -12.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1519,7 +1530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &586373909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,8 +1576,8 @@ Canvas:
   m_GameObject: {fileID: 586373908}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_RenderMode: 0
+  m_Camera: {fileID: 534669904}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1691,6 +1702,11 @@ Prefab:
       propertyPath: gridObj
       value: 
       objectReference: {fileID: 1973983011}
+    - target: {fileID: 114974087660883152, guid: d26a8779e59c63e42ad0aafb7228f883,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d26a8779e59c63e42ad0aafb7228f883, type: 2}
   m_IsPrefabAsset: 0
@@ -1824,6 +1840,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d73ce8895a994bc40b702c57b6a51ebd, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &736928347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1206755023716944, guid: d26a8779e59c63e42ad0aafb7228f883,
+    type: 2}
+  m_PrefabInternal: {fileID: 696695269}
 --- !u!1 &766732053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2100,7 @@ RectTransform:
   m_LocalScale: {x: 0.1269812, y: 0.12729104, z: 0.02046}
   m_Children: []
   m_Father: {fileID: 334163358}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2119,7 +2140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: ?? Honey'
+  m_Text: 'Cost: 10 Honey'
 --- !u!222 &873807899
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2246,7 +2267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: ?? Honey'
+  m_Text: 'Cost: 3 Honey'
 --- !u!222 &908774976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2610,6 +2631,8 @@ GameObject:
   - component: {fileID: 1078505572}
   - component: {fileID: 1078505574}
   - component: {fileID: 1078505573}
+  - component: {fileID: 1078505575}
+  - component: {fileID: 1078505576}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2640,7 +2663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -285, y: 0}
+  m_AnchoredPosition: {x: -249, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078505573
@@ -2677,6 +2700,43 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078505571}
   m_CullTransparentMesh: 0
+--- !u!114 &1078505575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1078505571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7953cee7fb9f27347a24b789f5cd9b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet:
+    prefab: {fileID: 1359672715853100, guid: 42bcc0a1305fdb74aaccb3a0e12873d3, type: 2}
+    cost: 5
+  fire:
+    prefab: {fileID: 1412470556384524, guid: ce1e3853df392b64d967876b1287ccf0, type: 2}
+    cost: 10
+  electric:
+    prefab: {fileID: 1725663414527394, guid: 0a39bd3b040a8d548bf829924158e664, type: 2}
+    cost: 8
+  leafcutter:
+    prefab: {fileID: 1935665428813344, guid: 1bae65373b456384b899b9f713f93392, type: 2}
+    cost: 3
+  obj: {fileID: 736928347}
+--- !u!114 &1078505576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1078505571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad985790893f51f4caef232cf1e2d696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: {fileID: 24861802}
+  money: {fileID: 2013189277}
 --- !u!1001 &1129325197
 Prefab:
   m_ObjectHideFlags: 0
@@ -3577,7 +3637,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1435457331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1078505575}
+        m_MethodName: SelectElectricAnt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1435457331
@@ -4262,7 +4333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1616812735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4746,7 +4817,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1732802172}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1078505575}
+        m_MethodName: SelectLeafcutterAnt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1732802172
@@ -6215,7 +6297,7 @@ RectTransform:
   m_LocalScale: {x: 0.1269812, y: 0.12729104, z: 0.02046}
   m_Children: []
   m_Father: {fileID: 334163358}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6707,7 +6789,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2010435267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1078505575}
+        m_MethodName: SelectBulletAnt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2010435267
@@ -6834,7 +6927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2064076475
 SpriteRenderer:
   m_ObjectHideFlags: 0

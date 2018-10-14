@@ -16,6 +16,7 @@ public class TowerPlacementManager : MonoBehaviour {
     public Vector3Int tilePos;
     public bool showPlaceableGizmos;
     public bool colorPlaceableTiles;
+    public bool canUserPlace;
 
     private BuildManager buildmanager;
     private Tilemap tilemap;
@@ -23,12 +24,12 @@ public class TowerPlacementManager : MonoBehaviour {
     private List<Vector3Int> tileListPos;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
+        buildmanager = BuildManager.instance;
         tilemap = grid.GetComponentInChildren<Tilemap>();
         worldListPos = new List<Vector3>();
         tileListPos = new List<Vector3Int>();
         StartCoroutine("FindPlaceableAreas");
-        print(tileListPos);
 	}
 	
     private IEnumerator FindPlaceableAreas() {
@@ -53,10 +54,15 @@ public class TowerPlacementManager : MonoBehaviour {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         tilePos = tilemap.WorldToCell(mousePos);
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && canUserPlace) {
+            if (!buildmanager.CanBuild)
+                return;
+
             if (tileListPos.Contains(tilePos)) {
-                GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-                Instantiate(towerToBuild, tilePos + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+                buildmanager.BuildTowerHere(tilePos);
+            }
+            else {
+                print("Can't build at selected location");
             }
             StartCoroutine("FindPlaceableAreas");
         }
