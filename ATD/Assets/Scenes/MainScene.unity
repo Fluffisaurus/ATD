@@ -2766,6 +2766,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114123043133248292, guid: 1a40f81c6dd08b64cb6059a9f84740bb,
+        type: 2}
+      propertyPath: attackSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a40f81c6dd08b64cb6059a9f84740bb, type: 2}
   m_IsPrefabAsset: 0
@@ -4213,6 +4218,11 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567200985584770, guid: 1a77c7aff381c89449ed822f2ff22818,
+        type: 2}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a77c7aff381c89449ed822f2ff22818, type: 2}
