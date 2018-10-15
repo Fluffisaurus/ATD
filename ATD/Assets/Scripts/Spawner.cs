@@ -6,14 +6,6 @@ using UnityEngine.Tilemaps;
 public class Spawner : MonoBehaviour {
 
     public GameObject gridObj;
-    [Header("Enemies")]
-    public Transform enemy;
-    public Transform enemyTank;
-    public Transform enemySpeedster;
-    [Header("Number of each enemy")]
-    public float numberOfGenerics;
-    public float numberOfTanks;
-    public float numberOfSpeedsters;
 
     private Tilemap tilemap;
     private Vector3[] spawnArea;
@@ -22,10 +14,16 @@ public class Spawner : MonoBehaviour {
     [HideInInspector]
     public bool isWaveSpawning;
 
+    public WaveBlueprint[] waves;
+    public static int numEnemiesAlive;
+    public static int waveIndex;
+
     private float[] spawnAmount = { 0, 0, 0 };
+    TowerPlacementManager tManager;
 
 	// Use this for initialization
 	void Awake () {
+        tManager = TowerPlacementManager.instance;
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         xSize = tilemap.cellBounds.size.x;
         MakeSpawnArea();
@@ -36,19 +34,26 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(numEnemiesAlive > 0) {
+            return;
+        }
         if (isPlayClicked && !isWaveSpawning) {
-            SetSpawnAmount();
             StartCoroutine("SpawnWave");
+            return;
         }
 	}
 
     public void SetPlayButton() {
         //make sure there's no leftover enemies
-        if (CheckIfNoEnemiesExists())
+        if (NoEnemiesExists()) {
             isPlayClicked = true;
+            tManager.canUserPlace = false;
+            tManager.colorPlaceableTiles = false;
+        }
+        
     }
 
-    public bool CheckIfNoEnemiesExists() {
+    public bool NoEnemiesExists() {
         return (FindObjectOfType<Enemy>() == null);
     }
 
@@ -61,40 +66,49 @@ public class Spawner : MonoBehaviour {
         }
     }
 
-    void SetSpawnAmount() {
-        spawnAmount[0] = numberOfGenerics;
-        spawnAmount[1] = numberOfTanks;
-        spawnAmount[2] = numberOfSpeedsters;
-    }
-
     IEnumerator SpawnWave() {
         isWaveSpawning = true;
+
+        WaveBlueprint wave = waves[waveIndex];
+        spawnAmount[0] = wave.numberOfGenerics;
+        spawnAmount[1] = wave.numberOfTanks;
+        spawnAmount[2] = wave.numberOfSpeedsters;
+
         for (int i = 0; i < spawnAmount.Length; i++) {
-            SpawnEnemy(spawnAmount[i], i.ToString());
+            SpawnEnemy(wave, spawnAmount[i], i.ToString());
         }
         yield return null;
+        waveIndex++;
+        if(waveIndex == waves.Length) {
+            //win
+            print("you completed this level");
+            yield break;
+        }
         isWaveSpawning = false;
         isPlayClicked = false;
     }
 
-    void SpawnEnemy(float num, string index) {
+    void SpawnEnemy(WaveBlueprint wave, float num, string index) {
         switch (index) {
             case "0":
                 for (int i = 0; i < num; i++) {
                     int spawnPos = Random.Range(0, xSize - 1);
-                    Instantiate(enemy, spawnArea[spawnPos], Quaternion.identity);
+                    Instantiate(wave.enemy, spawnArea[spawnPos], Quaternion.identity);
+                    numEnemiesAlive++;
                 }
                 break;
             case "1":
                 for (int i = 0; i < num; i++) {
                     int spawnPos = Random.Range(0, xSize - 1);
-                    Instantiate(enemyTank, spawnArea[spawnPos], Quaternion.identity);
+                    Instantiate(wave.enemyTank, spawnArea[spawnPos], Quaternion.identity);
+                    numEnemiesAlive++;
                 }
                 break;
             case "2":
                 for (int i = 0; i < num; i++) {
                     int spawnPos = Random.Range(0, xSize - 1);
-                    Instantiate(enemySpeedster, spawnArea[spawnPos], Quaternion.identity);
+                    Instantiate(wave.enemySpeedster, spawnArea[spawnPos], Quaternion.identity);
+                    numEnemiesAlive++;
                 }
                 break;
         }

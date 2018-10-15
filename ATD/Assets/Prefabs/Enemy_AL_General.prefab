@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d858480ac4838a4d92cb480d34c63fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   target: {fileID: 0}
 --- !u!114 &114264623254363696
 MonoBehaviour:
@@ -1315,9 +1315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4770e2010f155489dafb42b24384c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 10
+  MAX_HP: 7
   damageToPlayer: 5
-  honeyGained: 1
+  honeyGained: 3
   hpBar: {fileID: 114785044148049904}
 --- !u!114 &114580666061891382
 MonoBehaviour:

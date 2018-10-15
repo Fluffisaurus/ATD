@@ -9,51 +9,51 @@ public class Store : MonoBehaviour {
     public TowerBlueprint electric;
     public TowerBlueprint leafcutter;
 
-    public GameObject obj;
     BuildManager buildManager;
     TowerPlacementManager tManager;
 
-    private Spawner spawner;
-
     private void Start() {
-        spawner = obj.GetComponent<Spawner>();
         buildManager = BuildManager.instance;
-        tManager = obj.GetComponent<TowerPlacementManager>();
+        tManager = TowerPlacementManager.instance;
     }
 
     public void SelectLeafcutterAnt() {
-        if (spawner.CheckIfNoEnemiesExists()) {
+        if (Spawner.numEnemiesAlive == 0) {
             print("Leafcutter Ant Selected");
             buildManager.SelectTowerToBuild(leafcutter);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
             tManager.colorPlaceableTiles = (tManager.colorPlaceableTiles) ? false : true;
+            tManager.isFireAnt = false;
         }
     }
 
     public void SelectBulletAnt() {
-        if (spawner.CheckIfNoEnemiesExists()) {
+        if (Spawner.numEnemiesAlive == 0) {
             print("Bullet Ant Selected");
             buildManager.SelectTowerToBuild(bullet);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
             tManager.colorPlaceableTiles = (tManager.colorPlaceableTiles) ? false : true;
+            tManager.isFireAnt = false;
         }
     }
 
     public void SelectFireAnt() {
-        if (spawner.CheckIfNoEnemiesExists()) {
+        if (Spawner.numEnemiesAlive == 0) {
             print("Fire Ant Selected");
             buildManager.SelectTowerToBuild(fire);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
             tManager.colorPlaceableTiles = (tManager.colorPlaceableTiles) ? false : true;
+            tManager.isFireAnt = true;
         }
     }
 
     public void SelectElectricAnt() {
-        if (spawner.CheckIfNoEnemiesExists()) {
+        if (Spawner.numEnemiesAlive == 0) {
             print("Electric Ant Selected");
             buildManager.SelectTowerToBuild(electric);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
             tManager.colorPlaceableTiles = (tManager.colorPlaceableTiles) ? false : true;
+            tManager.isFireAnt = false;
         }
     }
 }

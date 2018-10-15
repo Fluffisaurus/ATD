@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour {
     public static int Honey;
     public int startingHoney = 50;
 
-    // Use this for initialization
+    // Use this for initialization  private void Start() {
     void Start () {
 
         if(Difficulty.difficulty[0] == true) {

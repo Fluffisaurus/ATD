@@ -19,7 +19,7 @@ public class BuildManager : MonoBehaviour {
     public GameObject towerElectricPrefab;
     public GameObject towerLeafcutterPrefab;
 
-    private TowerBlueprint towerToBuild;
+    public TowerBlueprint towerToBuild { get; set; }
 
     public bool CanBuild { get { return towerToBuild != null; } }
 

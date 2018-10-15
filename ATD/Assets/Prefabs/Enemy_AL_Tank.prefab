@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d858480ac4838a4d92cb480d34c63fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.5
   target: {fileID: 0}
 --- !u!114 &114890636589289286
 MonoBehaviour:
@@ -1585,9 +1585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4770e2010f155489dafb42b24384c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 20
+  MAX_HP: 25
   damageToPlayer: 10
-  honeyGained: 5
+  honeyGained: 8
   hpBar: {fileID: 114336289813843632}
 --- !u!137 &137061525328181256
 SkinnedMeshRenderer:

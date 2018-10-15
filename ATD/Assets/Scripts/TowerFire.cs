@@ -10,6 +10,7 @@ public class TowerFire : Tower {
 
     protected override void Start() {
         base.Start();
+        base.cost = cost;
     }
 
     protected override void Update() {

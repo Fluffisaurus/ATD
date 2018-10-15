@@ -114,6 +114,7 @@ MonoBehaviour:
   showPlaceableGizmos: 0
   colorPlaceableTiles: 0
   canUserPlace: 0
+  tower: {fileID: 0}
 --- !u!114 &114851261580298986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,10 +140,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
-  enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
-  enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a, type: 2}
-  enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
-    type: 2}
-  numberOfGenerics: 6
-  numberOfTanks: 2
-  numberOfSpeedsters: 1
+  isPlayClicked: 0
+  isWaveSpawning: 0
+  waves:
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 3
+    numberOfTanks: 0
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 4
+    numberOfTanks: 0
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 5
+    numberOfTanks: 0
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 6
+    numberOfTanks: 0
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 7
+    numberOfTanks: 0
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 8
+    numberOfTanks: 0
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 5
+    numberOfTanks: 1
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 7
+    numberOfTanks: 2
+    numberOfSpeedsters: 0
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 6
+    numberOfTanks: 2
+    numberOfSpeedsters: 1
+  - enemy: {fileID: 4796028929836346, guid: 4962daf8a2367534791f8ed21fb2ae5f, type: 2}
+    enemyTank: {fileID: 4871155715757050, guid: 8cd17379e858da2458ccba806a63230a,
+      type: 2}
+    enemySpeedster: {fileID: 4788041378331098, guid: dd74d1ba9ec71a348a2a487b236a8bce,
+      type: 2}
+    numberOfGenerics: 6
+    numberOfTanks: 3
+    numberOfSpeedsters: 2

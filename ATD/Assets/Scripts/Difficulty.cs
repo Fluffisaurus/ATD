@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Difficulty : MonoBehaviour {
-	public static bool [] difficulty = {false, false, false};
+	public static bool [] difficulty = { false, false, false };
 
-	public void Easy(){
+    public void Easy(){
 		difficulty[0] = true;
 		SceneManager.LoadScene("MainScene");
 

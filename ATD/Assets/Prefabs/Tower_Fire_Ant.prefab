@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 114571530829613658}
   m_Layer: 10
   m_Name: Tower_Fire_Ant
-  m_TagString: Untagged
+  m_TagString: fire_ant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1046,8 +1046,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977070923574680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: -0.51, z: 0.71874243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -478.2149, y: -224.72047, z: -10.072837}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4177618833725674}
@@ -1658,10 +1658,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rangeGizmo: 2.5
-  attackSpeed: 0.25
+  attackSpeed: 0.33
   attackCooldown: 0
   damage: 4
-  cost: 20
+  cost: 8
   bulletPrefab: {fileID: 1816068565923850, guid: 685629acc8ce8f442b2bdf8f1625d98b,
     type: 2}
   firePos: {fileID: 4123107724985472}

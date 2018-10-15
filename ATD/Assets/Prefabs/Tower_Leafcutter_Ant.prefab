@@ -151,6 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4483595773004378}
   - component: {fileID: 58929547484283310}
+  - component: {fileID: 114375578154747270}
   m_Layer: 10
   m_Name: Tower_Leafcutter_Ant
   m_TagString: Untagged
@@ -869,7 +870,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202156378529796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5515687, y: 0.48058146, z: -0.14404655}
+  m_LocalPosition: {x: -477.17334, y: -223.7299, z: -10.935626}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4952417108858214}
@@ -1346,6 +1347,25 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114375578154747270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202156378529796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53419b163d7b8f4992431d470cb58c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rangeGizmo: 0
+  attackSpeed: 0
+  attackCooldown: 0
+  damage: 0
+  cost: 1
+  bulletPrefab: {fileID: 0}
+  firePos: {fileID: 0}
 --- !u!114 &114389736770908494
 MonoBehaviour:
   m_ObjectHideFlags: 1
