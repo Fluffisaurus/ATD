@@ -9,6 +9,7 @@ public class TowerElectric : Tower {
 	// Use this for initialization
 	protected override void Start () {
         base.Start();
+        base.cost = cost;
 	}
 	
 	// Update is called once per frame

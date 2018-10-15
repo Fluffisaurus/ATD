@@ -901,8 +901,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1875444863944398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49, y: -0.51, z: 0.71874243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -480.2149, y: -224.72047, z: -10.072837}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4104464296023590}
@@ -1238,10 +1238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rangeGizmo: 2
-  attackSpeed: 0.3
+  attackSpeed: 0.4
   attackCooldown: 0
   damage: 1
-  cost: 10
+  cost: 6
   bulletPrefab: {fileID: 1518457116020156, guid: a0e2a52d359c1dd4da5ef07163516e5a,
     type: 2}
   firePos: {fileID: 4304927870040544}

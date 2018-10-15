@@ -5,6 +5,16 @@ using UnityEngine.Tilemaps;
 
 public class TowerPlacementManager : MonoBehaviour {
 
+    public static TowerPlacementManager instance;
+
+    private void Awake() {
+        if (instance != null) {
+            print("multiple towerplacementmanagers in scene");
+            return;
+        }
+        instance = this;
+    }
+
     [Header("References")]
     public GameObject grid;
     public LayerMask groundMask;
@@ -17,11 +27,13 @@ public class TowerPlacementManager : MonoBehaviour {
     public bool showPlaceableGizmos;
     public bool colorPlaceableTiles;
     public bool canUserPlace;
+    public bool isFireAnt;
 
     private BuildManager buildmanager;
     private Tilemap tilemap;
     private List<Vector3> worldListPos;
     private List<Vector3Int> tileListPos;
+    private List<Vector3Int> tileListFirePos;
 
     public GameObject tower;
     Spawner spawner;
@@ -33,6 +45,7 @@ public class TowerPlacementManager : MonoBehaviour {
         tilemap = grid.GetComponentInChildren<Tilemap>();
         worldListPos = new List<Vector3>();
         tileListPos = new List<Vector3Int>();
+        tileListFirePos = new List<Vector3Int>();
         StartCoroutine("FindPlaceableAreas");
 	}
 	
@@ -49,6 +62,9 @@ public class TowerPlacementManager : MonoBehaviour {
                 worldListPos.Add(place);
                 tileListPos.Add(localPos);
             }
+            if (walkableGround && walkableStone) {
+                tileListFirePos.Add(localPos);
+            }
         }
         yield return null;
     }
@@ -60,10 +76,12 @@ public class TowerPlacementManager : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0) && canUserPlace) {
 
-
             if (!buildmanager.CanBuild)
                 return;
 
+            if (isFireAnt && tileListFirePos.Contains(tilePos)) {
+                buildmanager.BuildTowerHere(tilePos);
+            }
             if (tileListPos.Contains(tilePos)) {
                 buildmanager.BuildTowerHere(tilePos);
             }
@@ -84,8 +102,16 @@ public class TowerPlacementManager : MonoBehaviour {
         if (colorPlaceableTiles) {
             foreach (var pos in tilemap.cellBounds.allPositionsWithin)
                 tilemap.SetColor(pos, Color.white);
-            foreach (var tile in tileListPos)
-                tilemap.SetColor(tile, Color.green);
+            if (isFireAnt) {
+                //showing fireants
+                foreach (var tile in tileListFirePos) {
+                    tilemap.SetColor(tile, Color.green);
+                }
+            }
+            else {
+                foreach (var tile in tileListPos)
+                    tilemap.SetColor(tile, Color.green);
+            }
         }
         else {
             foreach (var tile in tileListPos)
