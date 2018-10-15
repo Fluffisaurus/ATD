@@ -18,8 +18,12 @@ public class PlayerLevelUI : MonoBehaviour {
         else level.text = "Level: " + currLevel + " (EASY)";
 
         currLevel = Menu.currentLevel;
+        level.text = "Level: " + currLevel;
+        wave.text = "Wave:" + Spawner.waveIndex + "/10";
         for (int i = 0; i < Difficulty.difficulty.Length; i++) Difficulty.difficulty[i] = false;
+
     }
+
 
 
 }
