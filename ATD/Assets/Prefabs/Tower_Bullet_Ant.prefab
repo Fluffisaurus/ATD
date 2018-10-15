@@ -1631,7 +1631,7 @@ MonoBehaviour:
   attackSpeed: 0.75
   attackCooldown: 0
   damage: 1
-  cost: 3
+  cost: 0
   bulletPrefab: {fileID: 1509819210618224, guid: 760303ba82f64454a9ad1fa2c051be3c,
     type: 2}
   firePos: {fileID: 4076695353825308}

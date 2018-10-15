@@ -101,6 +101,7 @@ public class TowerPlacementManager : MonoBehaviour {
 
             if (isFireAnt && tileListFirePos.Contains(tilePos)) {
                 buildmanager.BuildTowerHere(tilePos);
+                return;
             }
             if (tileListPos.Contains(tilePos)) {
                 buildmanager.BuildTowerHere(tilePos);
@@ -110,16 +111,16 @@ public class TowerPlacementManager : MonoBehaviour {
             }
             StartCoroutine("FindPlaceableAreas");
         }
-        if (Input.GetMouseButtonDown(0) && !canUserPlace) {
-            if (!tileListPos.Contains(tilePos)) {
-                print("not on free block");
-                Tower tower = FindObjectOfType<Tower>();
-                if (tower.transform.position == tilePos) {
-                    print("tower at this mouse position");
-                    buildmanager.SelectTower(tower.gameObject);
-                }
-            }
-        }
+        //if (Input.GetMouseButtonDown(0) && !canUserPlace) {
+        //    if (!tileListPos.Contains(tilePos)) {
+        //        print("not on free block");
+        //        Tower tower = FindObjectOfType<Tower>();
+        //        if (tower.transform.position == tilePos) {
+        //            print("tower at this mouse position");
+        //            buildmanager.SelectTower(tower.gameObject);
+        //        }
+        //    }
+        //}
 
 
         if (colorPlaceableTiles) {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour {
 
@@ -77,10 +78,15 @@ public class Spawner : MonoBehaviour {
         for (int i = 0; i < spawnAmount.Length; i++) {
             SpawnEnemy(wave, spawnAmount[i], i.ToString());
         }
+
+        //wave gold bonus, scales with difficulty
+        PlayerStats.gainWaveGold(2 + 2 * waveIndex);
         yield return null;
+        
         waveIndex++;
-        if(waveIndex == waves.Length) {
+        if(waveIndex > waves.Length) {
             //win
+            SceneManager.LoadScene("Victory");
             print("you completed this level");
             yield break;
         }

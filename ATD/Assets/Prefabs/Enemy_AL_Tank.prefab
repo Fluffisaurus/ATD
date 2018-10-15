@@ -1689,7 +1689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HP: 25
   damageToPlayer: 10
-  honeyGained: 8
+  honeyGained: 7
   hpBar: {fileID: 0}
 --- !u!137 &137061525328181256
 SkinnedMeshRenderer:

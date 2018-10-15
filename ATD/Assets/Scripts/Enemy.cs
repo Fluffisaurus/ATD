@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
 
     internal void Dead() {
         print("DEAD: " + gameObject);
-        PlayerStats.Honey += honeyGained;
+        PlayerStats.gainEnemyGold(honeyGained);
         Destroy(gameObject);
         Spawner.numEnemiesAlive--;
     }
