@@ -8,5 +8,5 @@ Contributions <br/>
 Sky Li: Antlion models, title page and level select screen <br/>
 Nijhum Mohammed: Ant tower models <br/>
 Vivian James: Character models, User Interface, and Code<br/>
-Angus Hon: Code<br/>
+Angus Hon: Code and User Interface<br/>
 
