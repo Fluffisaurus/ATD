@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - fire_ant
-  - water_bg
   layers:
   - Default
   - TransparentFX
