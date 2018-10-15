@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1620,6 +1620,16 @@ Prefab:
         type: 2}
       propertyPath: isPlayClicked
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974087660883152, guid: d26a8779e59c63e42ad0aafb7228f883,
+        type: 2}
+      propertyPath: numberOfGenerics
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974087660883152, guid: d26a8779e59c63e42ad0aafb7228f883,
+        type: 2}
+      propertyPath: numberOfTanks
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d26a8779e59c63e42ad0aafb7228f883, type: 2}
