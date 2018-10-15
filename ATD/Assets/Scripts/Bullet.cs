@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
     protected int dmg;
     public float speed = 3f;
 
-    public virtual void Seek(Transform target, int dmg) {
+    public void Seek(Transform target, int dmg) {
         this.target = target;
         this.dmg = dmg;
     }

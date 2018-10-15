@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - fire_ant
   - water_bg
+  - bullet_ant
+  - electric_ant
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
 
@@ -31,8 +32,15 @@ public class PlayerStats : MonoBehaviour {
         //reset selection
         for (int i = 0; i < Difficulty.difficulty.Length; i++) Difficulty.difficulty[i] = false;
     }
-	
+
+    public void FixedUpdate() {
+        if(Health <= 0) {
+            SceneManager.LoadScene("Game_Over");
+        }
+    }
+
     public void LoseHP(int value) {
         Health -= value;
     }
+
 }

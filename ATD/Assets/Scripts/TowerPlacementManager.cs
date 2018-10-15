@@ -74,6 +74,26 @@ public class TowerPlacementManager : MonoBehaviour {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         tilePos = tilemap.WorldToCell(mousePos);
 
+        if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("Mouse is down");
+
+            RaycastHit hitInfo = new RaycastHit();
+            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+            if (hit) {
+                Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+                if (hitInfo.transform.gameObject.tag == "Construction") {
+                    Debug.Log("It's working!");
+                }
+                else {
+                    Debug.Log("nopz");
+                }
+            }
+            else {
+                Debug.Log("No hit");
+            }
+            Debug.Log("Mouse is down");
+        }
+
         if (Input.GetMouseButtonDown(0) && canUserPlace) {
 
             if (!buildmanager.CanBuild)
@@ -90,14 +110,17 @@ public class TowerPlacementManager : MonoBehaviour {
             }
             StartCoroutine("FindPlaceableAreas");
         }
-        else if(Input.GetMouseButtonDown(0) && !canUserPlace){
+        if (Input.GetMouseButtonDown(0) && !canUserPlace) {
             if (!tileListPos.Contains(tilePos)) {
-                
+                print("not on free block");
+                Tower tower = FindObjectOfType<Tower>();
+                if (tower.transform.position == tilePos) {
+                    print("tower at this mouse position");
+                    buildmanager.SelectTower(tower.gameObject);
+                }
             }
-            print("hi");
         }
 
- 
 
         if (colorPlaceableTiles) {
             foreach (var pos in tilemap.cellBounds.allPositionsWithin)

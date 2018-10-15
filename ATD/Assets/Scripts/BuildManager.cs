@@ -20,6 +20,7 @@ public class BuildManager : MonoBehaviour {
     public GameObject towerLeafcutterPrefab;
 
     public TowerBlueprint towerToBuild { get; set; }
+    private GameObject selectedTower;
 
     public bool CanBuild { get { return towerToBuild != null; } }
 
@@ -36,7 +37,13 @@ public class BuildManager : MonoBehaviour {
         print("Purchased: " + towerToBuild.prefab);
     }
 
+    public void SelectTower(GameObject tower) {
+        selectedTower = tower;
+        towerToBuild = null;
+    }
+
     public void SelectTowerToBuild(TowerBlueprint tower) {
         towerToBuild = tower;
+        selectedTower = null;
     }
 }

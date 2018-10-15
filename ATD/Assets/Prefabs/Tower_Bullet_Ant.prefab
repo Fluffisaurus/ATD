@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 114567200985584770}
   m_Layer: 10
   m_Name: Tower_Bullet_Ant
-  m_TagString: Untagged
+  m_TagString: bullet_ant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
