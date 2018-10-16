@@ -22,7 +22,10 @@ public class Enemy : MonoBehaviour {
     private float stunDuration;
     private bool isStunCoroutineRunning;
 
+    Spawner spawner;
+
     private void Start() {
+        spawner = Spawner.instance;
         onFire = false;
         stunned = false;
         health = MAX_HP;
@@ -47,7 +50,7 @@ public class Enemy : MonoBehaviour {
         print("DEAD: " + gameObject);
         PlayerStats.gainEnemyGold(honeyGained);
         Destroy(gameObject);
-        Spawner.numEnemiesAlive--;
+        spawner.numEnemiesAlive--;
     }
 
     internal void TakeDamage(float dmg) {

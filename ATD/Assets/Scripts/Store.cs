@@ -11,14 +11,16 @@ public class Store : MonoBehaviour {
 
     BuildManager buildManager;
     TowerPlacementManager tManager;
+    Spawner spawner;
 
     private void Start() {
+        spawner = Spawner.instance;
         buildManager = BuildManager.instance;
         tManager = TowerPlacementManager.instance;
     }
 
     public void SelectLeafcutterAnt() {
-        if (Spawner.numEnemiesAlive == 0) {
+        if (spawner.numEnemiesAlive == 0) {
             print("Leafcutter Ant Selected");
             buildManager.SelectTowerToBuild(leafcutter);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
@@ -28,7 +30,7 @@ public class Store : MonoBehaviour {
     }
 
     public void SelectBulletAnt() {
-        if (Spawner.numEnemiesAlive == 0) {
+        if (spawner.numEnemiesAlive == 0) {
             print("Bullet Ant Selected");
             buildManager.SelectTowerToBuild(bullet);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
@@ -38,7 +40,7 @@ public class Store : MonoBehaviour {
     }
 
     public void SelectFireAnt() {
-        if (Spawner.numEnemiesAlive == 0) {
+        if (spawner.numEnemiesAlive == 0) {
             print("Fire Ant Selected");
             buildManager.SelectTowerToBuild(fire);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;
@@ -48,7 +50,7 @@ public class Store : MonoBehaviour {
     }
 
     public void SelectElectricAnt() {
-        if (Spawner.numEnemiesAlive == 0) {
+        if (spawner.numEnemiesAlive == 0) {
             print("Electric Ant Selected");
             buildManager.SelectTowerToBuild(electric);
             tManager.canUserPlace = (tManager.canUserPlace) ? false : true;

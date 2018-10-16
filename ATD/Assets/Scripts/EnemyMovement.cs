@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void Start() {
         lvlMngr = GameObject.Find("LevelManager");
-        spawner = lvlMngr.GetComponent<Spawner>();
+        spawner = Spawner.instance;
         target = GameObject.Find("Enemy_Move_Target").transform;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
@@ -60,7 +60,7 @@ public class EnemyMovement : MonoBehaviour {
     void EndPoint() {
         PlayerStats.Health -= gameObject.GetComponent<Enemy>().damageToPlayer;
         Destroy(gameObject);
-        Spawner.numEnemiesAlive--;
+        spawner.numEnemiesAlive--;
     }
 
     public void OnDrawGizmos() {

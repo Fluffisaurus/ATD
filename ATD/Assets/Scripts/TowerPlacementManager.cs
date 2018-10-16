@@ -40,7 +40,7 @@ public class TowerPlacementManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        spawner = GetComponent<Spawner>();
+        spawner = Spawner.instance;
         buildmanager = BuildManager.instance;
         tilemap = grid.GetComponentInChildren<Tilemap>();
         worldListPos = new List<Vector3>();
@@ -74,26 +74,26 @@ public class TowerPlacementManager : MonoBehaviour {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         tilePos = tilemap.WorldToCell(mousePos);
 
-        if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("Mouse is down");
+        //if (Input.GetMouseButtonDown(0)) {
+        //    Debug.Log("Mouse is down");
 
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-            if (hit) {
-                Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-                if (hitInfo.transform.gameObject.tag == "Construction") {
-                    Debug.Log("It's working!");
-                }
-                else {
-                    Debug.Log("nopz");
-                }
-            }
-            else {
-                Debug.Log("No hit");
-            }
-            Debug.Log("Mouse is down");
-        }
-
+        //    RaycastHit hitInfo = new RaycastHit();
+        //    bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+        //    if (hit) {
+        //        Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+        //        if (hitInfo.transform.gameObject.tag == "Construction") {
+        //            Debug.Log("It's working!");
+        //        }
+        //        else {
+        //            Debug.Log("nopz");
+        //        }
+        //    }
+        //    else {
+        //        Debug.Log("No hit");
+        //    }
+        //    Debug.Log("Mouse is down");
+        //}
+        if (spawner.numEnemiesAlive > 0) return;
         if (Input.GetMouseButtonDown(0) && canUserPlace) {
 
             if (!buildmanager.CanBuild)

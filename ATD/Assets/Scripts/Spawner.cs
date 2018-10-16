@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour {
 
+    public static Spawner instance;
+
     public GameObject gridObj;
 
     private Tilemap tilemap;
@@ -16,7 +18,7 @@ public class Spawner : MonoBehaviour {
     public bool isWaveSpawning;
 
     public WaveBlueprint[] waves;
-    public static int numEnemiesAlive;
+    public int numEnemiesAlive;
     public static int waveIndex;
 
     private float[] spawnAmount = { 0, 0, 0 };
@@ -24,6 +26,7 @@ public class Spawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        instance = this;
         tManager = TowerPlacementManager.instance;
         tilemap = gridObj.GetComponentInChildren<Tilemap>();
         xSize = tilemap.cellBounds.size.x;
@@ -82,6 +85,8 @@ public class Spawner : MonoBehaviour {
 
         //wave gold bonus, scales with difficulty
         PlayerStats.gainWaveGold(2 + 2 * waveIndex);
+        isWaveSpawning = false;
+        isPlayClicked = false;
         waveIndex++;
         if(waveIndex >= waves.Length && NoEnemiesExists()) {
             //win
@@ -89,8 +94,7 @@ public class Spawner : MonoBehaviour {
             print("you completed this level");
             yield break;
         }
-        isWaveSpawning = false;
-        isPlayClicked = false;
+        
     }
 
     void SpawnEnemy(WaveBlueprint wave, float num, string index) {
