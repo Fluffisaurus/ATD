@@ -140,6 +140,10 @@ public class TowerPlacementManager : MonoBehaviour {
         else {
             foreach (var tile in tileListPos)
                 tilemap.SetColor(tile, Color.white);
+            foreach(var tile in tileListFirePos) {
+                if (tilemap.GetColor(tile) != Color.white)
+                    tilemap.SetColor(tile, Color.white);
+            }
         }
 
 	}

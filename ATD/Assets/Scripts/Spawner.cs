@@ -78,13 +78,12 @@ public class Spawner : MonoBehaviour {
         for (int i = 0; i < spawnAmount.Length; i++) {
             SpawnEnemy(wave, spawnAmount[i], i.ToString());
         }
+        yield return null;
 
         //wave gold bonus, scales with difficulty
         PlayerStats.gainWaveGold(2 + 2 * waveIndex);
-        yield return null;
-        
         waveIndex++;
-        if(waveIndex > waves.Length) {
+        if(waveIndex >= waves.Length && NoEnemiesExists()) {
             //win
             SceneManager.LoadScene("Victory");
             print("you completed this level");
